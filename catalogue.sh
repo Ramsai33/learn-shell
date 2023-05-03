@@ -16,7 +16,7 @@ unzip /tmp/catalogue.zip
 
 npm install
 
-cp ${script_location}/files/nodejs.systemd /etc/systemd/system/catalogue.service
+cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service
 
 systemctl daemon-reload
 
