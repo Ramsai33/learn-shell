@@ -1,5 +1,6 @@
 script_location=$(pwd)
 
+echo -e '/e[33m Downloading nodejs repo /e[0m'
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 yum install nodejs -y
