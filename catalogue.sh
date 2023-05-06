@@ -1,7 +1,7 @@
 script_location=$(pwd)
 LOG=/tmp/roboshop.log
 
-echo -e '/e[33mDownloadingnodejsrepo/e[0m'
+echo -e "/e[33mDownloadingnodejsrepo/e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${LOG}
 
 echo -e '/e[33m Install Nodejs /e[0m'
