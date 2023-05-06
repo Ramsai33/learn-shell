@@ -1,35 +1,47 @@
 script_location=$(pwd)
+LOG=/tmp/roboshop.log
 
-echo -e '/e[33m Downloading nodejs repo /e[0m'
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+echo -e '/e[33mDownloading nodejs repo/e[0m'
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${LOG}
 
-yum install nodejs -y
+echo -e '/e[33m Install Nodejs /e[0m'
+yum install nodejs -y &>>${LOG}
 
 #useradd roboshop
 
-mkdir -p /app
+echo -e '/e[33m creating app folder/e[0m'
+mkdir -p /app &>>${LOG}
 
-curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
+echo -e '/e[33m Downloading App Content /e[0m'
+curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>>${LOG}
 
-rm -rf /app/*
+echo -e '/e[33m removing App content/e[0m'
+rm -rf /app/* &>>${LOG}
 
-cd /app
+cd /app &>>${LOG}
 
-unzip /tmp/catalogue.zip
+unzip /tmp/catalogue.zip &>>${LOG}
 
-npm install
+echo -e '/e[33m Installing NPM /e[0m'
+npm install &>>${LOG}
 
-cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service
+echo -e '/e[33m Downloading nodejs repo/e[0m'
+cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service &>>${LOG}
 
-systemctl daemon-reload
+echo -e '/e[33m Daemon-Reload /e[0m'
+systemctl daemon-reload &>>${LOG}
 
-systemctl enable catalogue
-systemctl start catalogue
+echo -e '/e[33m Stating Catalogue Service/e[0m'
+systemctl enable catalogue &>>${LOG}
+systemctl start catalogue &>>${LOG}
 
-cp ${script_location}/files/schemaload.repo /etc/yum.repos.d/mongo.repo
+echo -e '/e[33m Copying Mongo Repo  /e[0m'
+cp ${script_location}/files/schemaload.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
 
-yum install mongodb-org-shell -y
+echo -e '/e[33m Installing MongoDB /e[0m'
+yum install mongodb-org-shell -y &>>${LOG}
 
-mongo --host 172.31.85.198 </app/schema/catalogue.js
+
+mongo --host 172.31.85.198 </app/schema/catalogue.js &>>${LOG}
 
 
