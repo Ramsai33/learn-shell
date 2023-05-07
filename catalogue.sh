@@ -7,6 +7,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Install Nodejs \e[0m'
@@ -15,6 +16,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Creating User \e[0m'
@@ -23,6 +25,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 
@@ -32,6 +35,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Downloading App Content \e[0m'
@@ -40,6 +44,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m removing App content\e[0m'
@@ -48,6 +53,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 
@@ -61,6 +67,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Downloading nodejs repo\e[0m'
@@ -69,6 +76,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Daemon-Reload \e[0m'
@@ -77,6 +85,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Stating Catalogue Service\e[0m'
@@ -86,6 +95,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Copying Mongo Repo  \e[0m'
@@ -94,6 +104,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Installing MongoDB \e[0m'
@@ -102,6 +113,7 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
 
 echo -e '\e[33m Schema Load \e[0m'
@@ -110,5 +122,5 @@ if [ $? -eq 0 ]; then
   echo "success"
 else
   echo "Failure"
+exit
 fi
-
