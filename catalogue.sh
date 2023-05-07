@@ -19,7 +19,7 @@ else
   echo "Failure"
 fi
 
-echo -e '\e[33m Install Nodejs \e[0m'
+echo -e '\e[33m Creating User \e[0m'
 useradd roboshop &>>${LOG}
 if [ $? -eq 0 ];
 then
