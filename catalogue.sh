@@ -19,8 +19,14 @@ else
   echo "Failure"
 fi
 
-
+echo -e '\e[33m Install Nodejs \e[0m'
 useradd roboshop &>>${LOG}
+if [ $? -eq 0 ];
+then
+  echo "success"
+else
+  echo "Failure"
+fi
 
 
 echo -e '\e[33m creating app folder\e[0m'
