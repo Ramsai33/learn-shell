@@ -115,7 +115,12 @@ else
   echo "Failure"
 fi
 
-
+echo -e '\e[33m Schema Load \e[0m'
 mongo --host 172.31.85.198 </app/schema/catalogue.js &>>${LOG}
-
+if [ $? -eq 0 ]
+then
+  echo "success"
+else
+  echo "Failure"
+fi
 
