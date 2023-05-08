@@ -24,9 +24,9 @@ nodejs() {
   yum install nodejs -y &>>${LOG}
   status_check
 
-#  print_head "Creating User"
-#  useradd roboshop &>>${LOG}
-#  status_check
+  print_head "Creating User"
+  useradd roboshop &>>${LOG}
+  status_check
 
 
   print_head "creating app folder"
