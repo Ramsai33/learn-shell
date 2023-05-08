@@ -1,4 +1,4 @@
-common.sh
+source common.sh
 
 cp ${script_location}/files/mongod.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
 
