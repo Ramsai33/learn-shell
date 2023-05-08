@@ -72,6 +72,6 @@ nodejs() {
   status_check
 
   print_head "Schema Load"
-  mongo --host ${component}-dev.ramdevops35.online </app/schema/${component}.js &>>${LOG}
+  mongo --host mongodb-dev.ramdevops35.online </app/schema/${component}.js &>>${LOG}
   status_check
 }
