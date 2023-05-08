@@ -67,7 +67,7 @@ nodejs() {
   cp ${script_location}/files/schemaload.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
   status_check
 
-  print_head "Installing MongoDB \e[0m'
+  print_head "Installing MongoDB \e[0m"
   yum install mongodb-org-shell -y &>>${LOG}
   status_check
 
