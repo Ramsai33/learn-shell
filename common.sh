@@ -46,6 +46,8 @@ nodejs() {
 
   unzip /tmp/${component}.zip &>>${LOG}
 
+  cd /app &>>${LOG}
+
   print_head "Installing NPM"
   npm install &>>${LOG}
   status_check

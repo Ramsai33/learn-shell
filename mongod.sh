@@ -1,13 +1,18 @@
 source common.sh
 
+print_head "Repo setup"
 cp ${script_location}/files/mongod.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
+status_check
 
 print_head "Install MongoDB"
 yum install mongodb-org -y &>>${LOG}
 status_check
 
-print_head "Stat Service"
+print_head "enable Service"
 systemctl enable mongod &>>${LOG}
+status_check
+
+print_head "start service"
 systemctl start mongod &>>${LOG}
 status_check
 
