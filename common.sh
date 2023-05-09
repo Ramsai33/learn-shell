@@ -75,7 +75,7 @@ nodejs() {
   status_check
 
   print_head "Schema Load"
-  mongo --host 172.31.93.111 </app/schema/${component}.js &>>${LOG}
+  mongo --host mongodb-dev.ramdevops35.online </app/schema/${component}.js &>>${LOG}
   status_check
   fi
 }
