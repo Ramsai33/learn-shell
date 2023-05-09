@@ -65,7 +65,7 @@ nodejs() {
   systemctl start ${component} &>>${LOG}
   status_check
 
-  if [ ${shema_load} == "true" ]; then
+  if [ ${schema_load} == "true" ]; then
   print_head "Copying Mongo Repo"
   cp ${script_location}/files/schemaload.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
   status_check
