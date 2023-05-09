@@ -65,6 +65,7 @@ nodejs() {
   systemctl start ${component} &>>${LOG}
   status_check
 
+  if [ ${shema_load} == "true" ]; then
   print_head "Copying Mongo Repo"
   cp ${script_location}/files/schemaload.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
   status_check
@@ -76,4 +77,5 @@ nodejs() {
   print_head "Schema Load"
   mongo --host 172.31.93.111 </app/schema/${component}.js &>>${LOG}
   status_check
+  fi
 }
