@@ -24,8 +24,12 @@ nodejs() {
   yum install nodejs -y &>>${LOG}
   status_check
 
+
   print_head "Creating User"
   useradd roboshop &>>${LOG}
+  if [ $? -ne 0 ]; then
+      useradd roboshop &>>${LOG}
+  fi
   status_check
 
 
