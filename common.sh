@@ -134,3 +134,23 @@ Maven() {
   LOAD_SCHEMA
 
 }
+
+PYTHON() {
+
+  print_head "Install Python"
+  yum install python36 gcc python3-devel -y &>>${LOG}
+  status_check
+
+  APP_PREREQ
+
+  print_head "Downloading Dependencies"
+  pip3.6 install -r requirements.txt &>>${LOG}
+  status_check
+
+  print_head "Systemd setup"
+  cp ${script_location}/files/payment.service /etc/systemd/system/payment.service &>>${LOG}
+  status_check
+
+  SYSTEMD_SETUP
+
+}
