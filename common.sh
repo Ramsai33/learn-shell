@@ -18,9 +18,10 @@ print_head() {
 APP_PREREQ() {
   print_head "Creating User"
   id roboshop &>>${LOG}
+  status_check
   if [ $? -ne 0 ]; then
     useradd roboshop
-    status_check
+
   fi
 
 
