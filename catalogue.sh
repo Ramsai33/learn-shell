@@ -4,4 +4,6 @@ component=catalogue
 
 schema_load=true
 
+schema_type=mongo
+
 nodejs
