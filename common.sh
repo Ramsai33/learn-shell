@@ -79,7 +79,7 @@ LOAD_SCHEMA() {
       status_check
 
       print_head "Schema Load"
-      mysql -h 172.31.83.153 -uroot -pRoboShop@1 < /app/schema/shipping.sql  </app/schema/${component}.js &>>${LOG}
+      mysql -h mysql-dev.ramdevops35.online -uroot ${root_mysql_password} < /app/schema/shipping.sql  </app/schema/${component}.sql &>>${LOG}
       systemctl restart ${component}
       status_check
      fi
