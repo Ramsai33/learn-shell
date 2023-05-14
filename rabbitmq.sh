@@ -1,4 +1,4 @@
-source common.
+source common.sh
 
 if [ -z ${root_rabbitmq_password} ];then
   echo "missinq rabbitmq password"
