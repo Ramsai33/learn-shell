@@ -17,8 +17,12 @@ print_head() {
 
 APP_PREREQ() {
   print_head "Creating User"
-    useradd roboshop &>>${LOG}
+  id roboshop &>>${LOG}
+  if [ $? -ne 0 ]; then
+    useradd roboshop
     status_check
+  fi
+
 
 
     print_head "creating app folder"
