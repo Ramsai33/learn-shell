@@ -58,8 +58,8 @@ SYSTEMD_SETUP() {
 }
 
 LOAD_SCHEMA() {
-  if [ ${schema_load} == "true" ]; then
-    if [ ${schema_type} == "mongo" ]; then
+  if [ ${schema_load}=="true" ]; then
+    if [ ${schema_type}=="mongo" ]; then
     print_head "Copying Mongo Repo"
     cp ${script_location}/files/schemaload.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
     status_check
@@ -73,7 +73,7 @@ LOAD_SCHEMA() {
     status_check
     fi
 
-      if [ ${schema_type} == "mysql" ]; then
+      if [ ${schema_type}=="mysql" ]; then
       print_head "Installing Mysql"
       yum install mysql -y &>>${LOG}
       status_check
