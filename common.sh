@@ -81,7 +81,7 @@ LOAD_SCHEMA() {
       status_check
 
       print_head "Load Schema"
-      mysql -h mysql-dev.ramdevopsb35.online -uroot -p${root_mysql_password} < /app/schema/shipping.sql  &>>${LOG}
+      mysql -h mysql-dev.ramdevops35.online -uroot -p${root_mysql_password} < /app/schema/shipping.sql  &>>${LOG}
       status_check
     fi
 
