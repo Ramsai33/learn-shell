@@ -127,7 +127,7 @@ Maven() {
   status_check
 
   print_head "Setup demon user"
-  cp ${script_location}/files/shipping.service /etc/systemd/system/shipping.service} &>>${LOG}
+  cp ${script_location}/files/shipping.service /etc/systemd/system/shipping.service &>>${LOG}
   status_check
 
   SYSTEMD_SETUP
