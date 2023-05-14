@@ -21,7 +21,6 @@ APP_PREREQ() {
   status_check
   if [ $? -ne 0 ]; then
     useradd roboshop
-
   fi
 
 
