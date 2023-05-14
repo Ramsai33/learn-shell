@@ -58,33 +58,34 @@ SYSTEMD_SETUP() {
 }
 
 LOAD_SCHEMA() {
-  if [ ${schema_load}=="true" ]; then
-    if [ ${schema_type}=="mongo" ]; then
-    print_head "Copying Mongo Repo"
-    cp ${script_location}/files/schemaload.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
-    status_check
+  if [ ${schema_load} == "true" ]; then
 
-    print_head "Installing MongoDB"
-    yum install mongodb-org-shell -y &>>${LOG}
-    status_check
+    if [ ${schema_type} == "mongo"  ]; then
+      print_head "Configuring Mongo Repo "
+      cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
+      status_check
 
-    print_head "Schema Load"
-    mongo --host mongodb-dev.ramdevops35.online </app/schema/${component}.js &>>${LOG}
-    status_check
+      print_head "Install Mongo Client"
+      yum install mongodb-org-shell -y &>>${LOG}
+      status_check
+
+      print_head "Load Schema"
+      mongo --host mongodb-dev.ramdevopsb35.online </app/schema/${component}.js &>>${LOG}
+      status_check
     fi
 
-      if [ ${schema_type}=="mysql" ]; then
-      print_head "Installing Mysql"
+    if [ ${schema_type} == "mysql"  ]; then
+
+      print_head "Install MySQL Client"
       yum install mysql -y &>>${LOG}
       status_check
 
-      print_head "Schema Load"
-      mysql -h mysql-dev.ramdevops35.online -uroot ${root_mysql_password} < /app/schema/shipping.sql  </app/schema/${component}.sql &>>${LOG}
-      systemctl restart ${component}
+      print_head "Load Schema"
+      mysql -h mysql-dev.ramdevopsb35.online -uroot -p${root_mysql_password} < /app/schema/shipping.sql  &>>${LOG}
       status_check
-     fi
-  fi
+    fi
 
+  fi
 }
 
 nodejs() {
