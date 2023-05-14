@@ -114,8 +114,8 @@ Maven() {
 
   APP_PREREQ
 
-  print_head "Downloading Dependencies" &>>${LOG}
-  mvn clean package
+  print_head "Downloading Dependencies"
+  mvn clean package &>>${LOG}
   status_check
 
   print_head "Moving Dependencies"
@@ -123,7 +123,7 @@ Maven() {
   status_check
 
   print_head "Setup demon user"
-  cp ${script_location/files/shipping.service /etc/systemd/system/shipping.service}
+  cp ${script_location}/files/shipping.service /etc/systemd/system/shipping.service} &>>${LOG}
   status_check
 
   SYSTEMD_SETUP
